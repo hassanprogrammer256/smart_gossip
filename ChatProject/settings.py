@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles','Chat','channels'
+    'django.contrib.staticfiles','Chat',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ChatProject.wsgi.application'
+ASGI_APPLICATION = 'ChatProject.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {'BACKEND': 'channels.layers.InMemoryChannelLayer'}
+}
 
 
 # Database

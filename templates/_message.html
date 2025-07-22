@@ -20,15 +20,18 @@
                 <div class="chat-body" id="tasks">
                     <div class="message" id="chatContainer">
                       <!-- received messages and displayed here -->
-                        
-                            
+                        {%for i in messages%}
+                            {%if i.sender != user%}
                                 <div class="receive">
                                     <p style="color: #000;"> {{i.message}}<strong>-{{i.sender}}</strong></p>
                                 </div>
+                            {%else%}
                             
                                 <div class="send">
                                     <p style="color: #000;">{{i.message}}</p>
                                 </div>
+                            {%endif%}
+                        {%endfor%}
                             
                     <!-- end receive messages -->
                     </div>

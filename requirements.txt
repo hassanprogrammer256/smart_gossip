@@ -23,6 +23,7 @@ idna==3.10
 incremental==24.7.2
 msgpack==1.1.1
 multidict==6.6.3
+ngrok==1.5.0
 propcache==0.3.2
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
@@ -30,6 +31,7 @@ pycares==4.9.0
 pycparser==2.22
 PyJWT==2.10.1
 pyOpenSSL==25.1.0
+python-dotenv==1.1.1
 redis==6.2.0
 requests==2.32.4
 service-identity==24.2.0

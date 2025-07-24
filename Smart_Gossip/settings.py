@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne','Gossip',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,8 +70,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Smart_Gossip.wsgi.application'
+ASGI_APPLICATION = 'Smart_Gossip.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', os.getenv('STREAM_API_PORT'))],
+        },
+    },
+}
 
+# Add Stream API credentials
+STREAM_API_KEY = os.getenv('STREAM_API_KEY')
+STREAM_API_SECRET = os.getenv('STREAM_API_SECRET')
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
